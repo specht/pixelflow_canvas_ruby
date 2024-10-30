@@ -1,7 +1,7 @@
 ---
 title: Palettes
 layout: page
-nav_order: 100
+nav_order: 1
 ---
 
 <style>
@@ -3190,5 +3190,3 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 </div>
 
 <!-- palettes end -->
-
-[Drawing things »](drawing_things.html){: .btn .btn-purple }

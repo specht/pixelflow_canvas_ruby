@@ -8,8 +8,10 @@ nav_order: 0
 
 A virtual CRT for old school graphics programming in Visual Studio Code.
 
+The Pixelflow Canvas is a simple library for creating pixel graphics, animations or interactive experiments in Ruby. It provides a canvas that you can draw on using a fixed palette of 256 colors or 24-bit RGB values. The canvas can be displayed in Visual Studio Code using the Pixelflow Canvas extension.
+
 {: .info }
-This is the documentation for the `pixelflow_canvas` rubygem. You can find the documentation for the Visual Studio Code extension [here](https://specht.github.io/pixelflow_canvas_vscode/).
+This is the documentation for the pixelflow_canvas rubygem which requires the [»Pixelflow Canvas«](https://marketplace.visualstudio.com/items?itemName=gymnasiumsteglitz.pixelflow-canvas) Visual Studio Code extension to work. You can find the documentation for the VS Code extension [here](https://specht.github.io/pixelflow_canvas_vscode/).
 
 ## Creating a canvas
 
@@ -99,12 +101,7 @@ The default interpolation mode is `:nearest`. It can be changed by calling `set_
 ```ruby
 canvas.set_interpolation_mode(:bilinear)
 ```
-[Palettes »](palettes.html){: .btn .btn-purple }
-
 <!--
-- Drawing text
-  - draw_text
-  - text_width
 - Using masks
 - Saving the canvas
 - Event polling

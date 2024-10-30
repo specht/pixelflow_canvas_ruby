@@ -1,7 +1,7 @@
 ---
 title: Drawing things
 layout: page
-nav_order: 101
+nav_order: 2
 ---
 
 # Drawing things
