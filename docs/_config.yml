@@ -8,5 +8,4 @@ aux_links:
   Github: https://github.com/specht/pixelflow_canvas_ruby
 callouts:
   info:
-    # title: Info
     color: yellow
