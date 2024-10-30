@@ -24,9 +24,23 @@ Specify the width, height, and color mode (either `:palette` or `:rgb`) to creat
 ```ruby
 require 'pixelflow_canvas'
 
-canvas = Canvas.new(320, 180, :palette)
+canvas = Pixelflow::Canvas.new(320, 180, :palette)
 canvas.set_pixel(160, 90, 10)
 ```
+
+This should produce the following output:
+
+<!-- code begin -->
+Pixelflow::Canvas.new(320, 180, :palette) do
+    set_pixel(160, 90, 10)
+end
+<!-- code end -->
+
+<!-- code begin -->
+Pixelflow::Canvas.new(320, 180, :rgb) do
+    set_pixel(160, 90, 0, 255, 0)
+end
+<!-- code end -->
 
 ### Pass a block to the constructor
 

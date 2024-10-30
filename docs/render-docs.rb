@@ -3,6 +3,8 @@
 require 'stringio'
 require 'yaml'
 require '../lib/pixelflow_canvas'
+require 'digest'
+require 'fileutils'
 
 palettes = YAML.load(File.read('../lib/pixelflow_canvas/palettes.yaml'))
 
@@ -56,3 +58,36 @@ end
 readme = File.read('drawing_things.md')
 readme.sub!(/<!-- fonts start -->(.*?)<!-- fonts end -->/m, "<!-- fonts start -->\n#{s}\n<!-- fonts end -->")
 File.write('drawing_things.md', readme)
+
+Dir['*.md'].each do |path|
+    s = File.read(path)
+    loop do
+        i0 = s.index('<!-- code begin -->')
+        break unless i0
+        i1 = s.index('<!-- code end -->', i0)
+        snippet = s[i0+19..i1-1]
+        snippet.strip!
+        sha1 = Digest::SHA1.hexdigest(snippet)[0, 16]
+        png_path = "images/code/#{sha1}.png"
+        code = StringIO.open do |io|
+            io.puts "require 'pixelflow_canvas'"
+            io.print "canvas = "
+            io.puts snippet
+            io.puts "canvas.save_as_png('#{png_path}')"
+            io.string
+        end
+        unless File.exist?(png_path)
+            FileUtils.mkpath(File.dirname(png_path))
+            puts "CREATING #{png_path}"
+            puts code
+            IO.popen('ruby', 'r+') do |io|
+                io.write(code)
+                io.close_write
+                io.read
+            end
+        end
+        s[i0..i1+16] = "<img src='#{png_path}'>"
+    end
+    File.open(path, 'w') { |f| f.write(s) }
+    
+end
