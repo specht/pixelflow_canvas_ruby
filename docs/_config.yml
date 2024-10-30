@@ -2,7 +2,11 @@ title: Pixelflow Canvas
 description: A virtual CRT for old school graphics programming in Visual Studio Code.
 theme: just-the-docs
 
-url: https://github.com/specht/pixelflow_canvas_vscode
+url: https://github.com/specht/pixelflow_canvas_ruby
 
 aux_links:
-  Github: https://github.com/specht/pixelflow_canvas_vscode
+  Github: https://github.com/specht/pixelflow_canvas_ruby
+callouts:
+  info:
+    # title: Info
+    color: yellow
