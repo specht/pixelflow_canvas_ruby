@@ -51,7 +51,7 @@ code end --><img class='full' src='images/code/7fa15cea8c83a542.png'>
 This method allows you to omit the `canvas` variable on every method call:
 
 ```ruby
-Canvas.new(320, 180, :palette) do
+Pixelflow::Canvas.new(320, 180, :palette) do
     set_pixel(160, 90, 10)
 end
 ```
@@ -59,7 +59,7 @@ end
 You can also use the `perform` method to run a block on an existing canvas:
 
 ```ruby
-canvas = Canvas.new(320, 180, :palette)
+canvas = Pixelflow::Canvas.new(320, 180, :palette)
 canvas.perform do
     set_pixel(160, 90, 10)
 end
