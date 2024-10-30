@@ -23,9 +23,10 @@ module Pixelflow
             :buffered => 1
         }
         COMPOSE_MODES = {
-            :over => 0,
+            :copy => 0,
             :add => 1,
-            :subtract => 2
+            :subtract => 2,
+            :multiply => 3,
         }
         INTERPOLATION_MODES = {
             :nearest => 0,
@@ -43,7 +44,7 @@ module Pixelflow
             @color_mode = :rgb
             @advance_mode = :right
             @draw_mode = :direct
-            @compose_mode = :over
+            @compose_mode = :copy
             @palette = VGA_PALETTE.dup
             @socket = TCPSocket.new('127.0.0.1', 19223)
             set_size(width, height)
@@ -107,7 +108,7 @@ module Pixelflow
             unless COMPOSE_MODES.keys.include?(mode)
                 raise "Invalid compose mode: #{mode}"
             end
-            if mode != :over && @color_mode != :rgb
+            if mode != :copy && @color_mode != :rgb
                 raise "Cannot switch compose mode to #{mode} in palette color mode!"
             end
             @compose_mode = mode
@@ -276,6 +277,17 @@ module Pixelflow
                     r = 255 if r > 255
                     g = 255 if g > 255
                     b = 255 if b > 255
+                elsif @compose_mode == :subtract
+                    r = @screen[offset + 0] - r
+                    g = @screen[offset + 1] - g
+                    b = @screen[offset + 2] - b
+                    r = 0 if r < 0
+                    g = 0 if g < 0
+                    b = 0 if b < 0
+                elsif @compose_mode == :multiply
+                    r = (@screen[offset + 0] * r) / 255
+                    g = (@screen[offset + 1] * g) / 255
+                    b = (@screen[offset + 2] * b) / 255
                 end
                 @screen[offset + 0] = r
                 @screen[offset + 1] = g
@@ -743,13 +755,13 @@ module Pixelflow
             end
         end
 
-        def self.text_width(s, font, options = {})
+        def text_width(s, font, scale = 1)
             Canvas.load_font(font)
             width = 0
             s.each_char do |c|
                 glyph = @@cypher_fonts[font][c.ord]
                 if glyph
-                    width += glyph[:width]
+                    width += glyph[:width] * scale
                 end
             end
             width

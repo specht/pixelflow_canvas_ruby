@@ -45,10 +45,10 @@ canvas.set_predefined_palette(:cling)
 You can also change individual colors in a palette using the `set_palette_color` method:
 
 ```ruby
-canvas.set_palette_color(0, 0x14, 0x34, 0x64)
+canvas.set_palette(0, 0x14, 0x34, 0x64)
 ```
 
-Changing a palette color will affect all pixels that use that color in the canvas.
+This sets the color number 0 to a deep blue. Changing a palette color will affect all pixels that use that color in the canvas immediately. This means you can do palette animations by changing the palette colors over time.
 
 ## Predefined palettes
 
@@ -3190,3 +3190,5 @@ Changing a palette color will affect all pixels that use that color in the canva
 </div>
 
 <!-- palettes end -->
+
+[Drawing things »](drawing_things.html){: .btn .btn-purple }
