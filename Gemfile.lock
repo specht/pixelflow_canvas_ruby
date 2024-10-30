@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    pixelflow_canvas (0.7.4)
+      chunky_png (~> 1.4.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    chunky_png (1.4.0)
+    rake (13.2.1)
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  pixelflow_canvas!
+  rake (~> 13.0)
+
+BUNDLED WITH
+   2.5.22
