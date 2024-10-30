@@ -61,11 +61,13 @@ File.write('drawing_things.md', readme)
 
 Dir['*.md'].each do |path|
     s = File.read(path)
+    i = 0
     loop do
-        i0 = s.index('<!-- code begin -->')
+        i0 = s.index('<!-- code begin', i)
         break unless i0
-        i1 = s.index('<!-- code end -->', i0)
-        snippet = s[i0+19..i1-1]
+        i = i0 + 1
+        i1 = s.index('code end -->', i0)
+        snippet = s[i0+15..i1-1]
         snippet.strip!
         sha1 = Digest::SHA1.hexdigest(snippet)[0, 16]
         png_path = "images/code/#{sha1}.png"
@@ -76,6 +78,9 @@ Dir['*.md'].each do |path|
             io.puts "canvas.save_as_png('#{png_path}')"
             io.string
         end
+        puts '-' * 20
+        puts code
+        puts '-' * 20
         unless File.exist?(png_path)
             FileUtils.mkpath(File.dirname(png_path))
             puts "CREATING #{png_path}"
@@ -86,8 +91,8 @@ Dir['*.md'].each do |path|
                 io.read
             end
         end
-        s[i0..i1+16] = "<img src='#{png_path}'>"
+        newline_index = s.index("\n", i1)
+        s[i1+12..newline_index] = "<img class='full' src='#{png_path}'>\n"
     end
     File.open(path, 'w') { |f| f.write(s) }
-    
 end

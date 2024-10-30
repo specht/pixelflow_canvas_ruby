@@ -459,7 +459,7 @@ module Pixelflow
             fa2 = 4 * a2
             fb2 = 4 * b2
             x0 = 0
-            y0 = b
+            y0 = rb
             sigma = 2 * b2 + a2 * (1 - 2 * rb)
             while b2 * x0 <= a2 * y0
                 set_pixel(x + x0, y + y0)
@@ -473,7 +473,7 @@ module Pixelflow
                 sigma += b2 * ((4 * x0) + 6)
                 x0 += 1
             end
-            x0 = a
+            x0 = ra
             y0 = 0
             sigma = 2 * a2 + b2 * (1 - 2 * ra)
             while a2 * y0 <= b2 * x0
@@ -500,7 +500,7 @@ module Pixelflow
             fa2 = 4 * a2
             fb2 = 4 * b2
             x0 = 0
-            y0 = b
+            y0 = rb
             sigma = 2 * b2 + a2 * (1 - 2 * rb)
             while b2 * x0 <= a2 * y0
                 (x - x0..x + x0).each do |i|
@@ -514,7 +514,7 @@ module Pixelflow
                 sigma += b2 * ((4 * x0) + 6)
                 x0 += 1
             end
-            x0 = a
+            x0 = ra
             y0 = 0
             sigma = 2 * a2 + b2 * (1 - 2 * ra)
             while a2 * y0 <= b2 * x0

@@ -4,6 +4,16 @@ layout: home
 nav_order: 0
 ---
 
+<style>
+img.full {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    image-rendering: pixelated;
+}
+</style>
+
 # Pixelflow Canvas (Ruby driver)
 
 A virtual CRT for old school graphics programming in Visual Studio Code.
@@ -24,23 +34,17 @@ Specify the width, height, and color mode (either `:palette` or `:rgb`) to creat
 ```ruby
 require 'pixelflow_canvas'
 
-canvas = Pixelflow::Canvas.new(320, 180, :palette)
-canvas.set_pixel(160, 90, 10)
+canvas = Pixelflow::Canvas.new(32, 18, :palette)
+canvas.set_pixel(16, 9, 10)
 ```
 
 This should produce the following output:
 
-<!-- code begin -->
-Pixelflow::Canvas.new(320, 180, :palette) do
-    set_pixel(160, 90, 10)
+<!-- code begin
+Pixelflow::Canvas.new(32, 18, :palette) do
+    set_pixel(16, 9, 10)
 end
-<!-- code end -->
-
-<!-- code begin -->
-Pixelflow::Canvas.new(320, 180, :rgb) do
-    set_pixel(160, 90, 0, 255, 0)
-end
-<!-- code end -->
+code end --><img class='full' src='images/code/7fa15cea8c83a542.png'>
 
 ### Pass a block to the constructor
 
