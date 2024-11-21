@@ -139,7 +139,7 @@ module Pixelflow
                     break if (Time.now.to_f - @last_timestamp) >= fps1
                 end
             end
-            @last_timestamp = t
+            @last_timestamp = Time.now.to_f
         end
 
         def save_as_png(path)
