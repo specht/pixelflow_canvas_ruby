@@ -133,8 +133,12 @@ module Pixelflow
         def ensure_max_fps(fps)
             fps1 = 1.0 / fps
             t = Time.now.to_f
-            dt = t - @last_timestamp
-            sleep(fps1 - dt) if dt < fps1
+            if @last_timestamp
+                loop do
+                    sleep 0.01
+                    break if (Time.now.to_f - @last_timestamp) >= fps1
+                end
+            end
             @last_timestamp = t
         end
 
