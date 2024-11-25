@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module PixelflowCanvas
-  VERSION = "0.7.7"
+  VERSION = "0.7.8"
 end

@@ -55,6 +55,10 @@ module Pixelflow
             end
         end
 
+        def inspect
+            "#<Pixelflow::Canvas @ #{@width}x#{@height}>"
+        end
+
         attr_reader :width, :height, :color_mode
 
         def run(&block)
