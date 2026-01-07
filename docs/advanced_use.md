@@ -11,7 +11,7 @@ Masks can be used to specify which parts of the image should be affected by draw
 To set a mask, use the `set_mask` method:
 
 ```ruby
-canvas.set_mask do
+set_mask do
     add_color(5)
 end
 ```
@@ -21,14 +21,14 @@ In the example above, the mask is set to all pixels that currently have a color 
 Remove a mask by calling the `remove_mask` method:
 
 ```ruby
-canvas.remove_mask
+remove_mask
 ```
 # Saving the canvas
 
 You can save the canvas to a file using the `save_as_png` method.
 
 ```ruby
-canvas.save_as_png("output.png")
+save_as_png("output.png")
 ```
 
 # Event polling

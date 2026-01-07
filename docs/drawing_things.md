@@ -26,14 +26,14 @@ The `Canvas` class provides a number of methods for drawing things on the canvas
 The `set_pixel` method sets the color of a single pixel on the canvas.
 
 ```ruby
-canvas.set_pixel(160, 90, 10) # in palette mode
-canvas.set_pixel(160, 90, 0, 255, 0) # in RGB mode
+set_pixel(160, 90, 10) # in palette mode
+set_pixel(160, 90, 0, 255, 0) # in RGB mode
 ```
 
 To read the color of a pixel, use the `get_pixel` method.
 
 ```ruby
-color = canvas.get_pixel(160, 90)
+color = get_pixel(160, 90)
 ```
 
 Depending on the color mode, the `get_pixel` method returns either a palette index or an array of RGB values.
@@ -43,14 +43,14 @@ Depending on the color mode, the `get_pixel` method returns either a palette ind
 The `set_color` method sets the color that will be used by all subsequent drawing operations.
 
 ```ruby
-canvas.set_color(10)
+set_color(10)
 ```
 
 You can omit the color argument in the `set_pixel` method if you have previously set the color using the `set_color` method.
 
 ```ruby
-canvas.set_color(10)
-canvas.set_pixel(160, 90)
+set_color(10)
+set_pixel(160, 90)
 ```
 
 ## Drawing lines
@@ -58,8 +58,8 @@ canvas.set_pixel(160, 90)
 Use the `draw_line` method to draw a line between two points.
 
 ```ruby
-canvas.set_color(10)
-canvas.draw_line(10, 10, 100, 50)
+set_color(10)
+draw_line(10, 10, 100, 50)
 ```
 
 <!-- code begin
@@ -76,10 +76,10 @@ code end --><img class='full' src='images/code/0ba813cd6b7e0ae0.png'>
 Use the `draw_rect` and `fill_rect` methods to draw rectangles. Specify the coordinates of the upper-left corner and the lower-right corner of the rectangle.
 
 ```ruby
-canvas.set_color(3)
-canvas.fill_rect(10, 10, 100, 50)
-canvas.set_color(10)
-canvas.draw_rect(10, 10, 100, 50)
+set_color(3)
+fill_rect(10, 10, 100, 50)
+set_color(10)
+draw_rect(10, 10, 100, 50)
 ```
 
 <!-- code begin
@@ -98,10 +98,10 @@ code end --><img class='full' src='images/code/584e2ee3b7526718.png'>
 Use the `draw_circle` and `fill_circle` methods to draw circles. Specify the center and the radius of the circle.
 
 ```ruby
-canvas.set_color(3)
-canvas.fill_circle(160, 90, 50)
-canvas.set_color(10)
-canvas.draw_circle(160, 90, 50)
+set_color(3)
+fill_circle(160, 90, 50)
+set_color(10)
+draw_circle(160, 90, 50)
 ```
 
 <!-- code begin
@@ -120,10 +120,10 @@ code end --><img class='full' src='images/code/809d9ce7d7a8ce6c.png'>
 Use the `draw_ellipse` and `fill_ellipse` methods to draw ellipses. Specify the center, the horizontal radius, and the vertical radius of the ellipse.
 
 ```ruby
-canvas.set_color(3)
-canvas.fill_ellipse(160, 90, 50, 30)
-canvas.set_color(10)
-canvas.draw_ellipse(160, 90, 50, 30)
+set_color(3)
+fill_ellipse(160, 90, 50, 30)
+set_color(10)
+draw_ellipse(160, 90, 50, 30)
 ```
 <!-- code begin
 Pixelflow::Canvas.new(64, 19, :palette) do
@@ -141,10 +141,10 @@ code end --><img class='full' src='images/code/3871051301832e44.png'>
 Use the `draw_arc` and `fill_arc` methods to draw arcs. Specify the center, the radius, the start angle, and the end angle of the arc.
 
 ```ruby
-canvas.set_color(3)
-canvas.fill_arc(160, 90, 50, 0, 180)
-canvas.set_color(10)
-canvas.draw_arc(160, 90, 50, 0, 180)
+set_color(3)
+fill_arc(160, 90, 50, 0, 180)
+set_color(10)
+draw_arc(160, 90, 50, 0, 180)
 ```
 
 <!-- code begin
@@ -163,9 +163,9 @@ code end --><img class='full' src='images/code/4eb9d4f97e05c739.png'>
 Use the `draw_quadratic_bezier` and `draw_cubic_bezier` methods to draw quadratic and cubic Bézier curves, respectively.
 
 ```ruby
-canvas.set_color(10)
-canvas.draw_quadratic_bezier(10, 10, 50, 50, 100, 10)
-canvas.draw_cubic_bezier(10, 10, 50, 50, 100, 50, 150, 10)
+set_color(10)
+draw_quadratic_bezier(10, 10, 50, 50, 100, 10)
+draw_cubic_bezier(10, 10, 50, 50, 100, 50, 150, 10)
 ```
 
 <!-- code begin
@@ -191,10 +191,10 @@ code end --><img class='full' src='images/code/40acf0284459aa0e.png'>
 Use the `draw_triangle` and `fill_triangle` methods to draw triangles. Specify the coordinates of the three vertices of the triangle.
 
 ```ruby
-canvas.set_color(3)
-canvas.fill_triangle(10, 10, 100, 50, 50, 100)
-canvas.set_color(10)
-canvas.draw_triangle(10, 10, 100, 50, 50, 100)
+set_color(3)
+fill_triangle(10, 10, 100, 50, 50, 100)
+set_color(10)
+draw_triangle(10, 10, 100, 50, 50, 100)
 ```
 
 <!-- code begin
@@ -213,10 +213,10 @@ code end --><img class='full' src='images/code/85abc3576f6d78b1.png'>
 The `flood_fill` method fills an area of the canvas with the current color. Specify the starting point of the fill operation.
 
 ```ruby
-canvas.set_color(10)
-canvas.draw_circle(110, 90, 50)
-canvas.draw_circle(210, 90, 40)
-canvas.flood_fill(160, 90)
+set_color(10)
+draw_circle(110, 90, 50)
+draw_circle(210, 90, 40)
+flood_fill(160, 90)
 ```
 
 <!-- code begin
@@ -237,8 +237,8 @@ code end --><img class='full' src='images/code/ef667cfe7ff65c27.png'>
 Use the `draw_text` method to draw text on the canvas. Specify the position, the text to draw, the font name, and the scale factor.
 
 ```ruby
-canvas.set_color(10)
-canvas.draw_text(10, 10, "Hello, world!", "4x6", 2)
+set_color(10)
+draw_text(10, 10, "Hello, world!", "4x6", 2)
 ```
 
 <!-- code begin
@@ -254,7 +254,7 @@ code end --><img class='full' src='images/code/30c5ac94e5fa22ba.png'>
 Use `text_width` to get the width and height of a given text string in pixels.
 
 ```ruby
-width = canvas.text_width("Hello, world!", "4x6", 2)
+width = text_width("Hello, world!", "4x6", 2)
 ```
 
 There are several built-in fonts available:

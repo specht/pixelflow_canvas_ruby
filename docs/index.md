@@ -76,7 +76,7 @@ There are two color modes: `:palette` and `:rgb`. In palette mode, the canvas us
 The default color mode is `:rgb`. It can be changed by calling `set_color_mode`.
 
 ```ruby
-canvas.set_color_mode(:palette)
+set_color_mode(:palette)
 ```
 
 ### Double buffering
@@ -86,7 +86,7 @@ There are two drawing modes: `:direct` and `:buffered`. In direct mode, every pi
 The default drawing mode is `:direct`. It can be changed by calling `set_draw_mode`.
 
 ```ruby
-canvas.set_draw_mode(:buffered)
+set_draw_mode(:buffered)
 ```
 
 {: .info }
@@ -104,7 +104,7 @@ There are three composition modes: `:copy`, `:add`, `:subtract` and `:multiply`.
 The default composition mode is `:copy`. It can be changed by calling `set_composition_mode`.
 
 ```ruby
-canvas.set_composition_mode(:add)
+set_composition_mode(:add)
 ```
 
 {: .info }
@@ -117,7 +117,7 @@ There are two interpolation modes: `:nearest` and `:bilinear`. This mode only af
 The default interpolation mode is `:nearest`. It can be changed by calling `set_interpolation_mode`.
 
 ```ruby
-canvas.set_interpolation_mode(:bilinear)
+set_interpolation_mode(:bilinear)
 ```
 <!--
 - Using masks
