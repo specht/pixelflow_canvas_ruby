@@ -39,13 +39,13 @@ Pixelflow Canvas comes with a number of predefined palettes that you can use in 
 To set a predefined palette, use the `set_predefined_palette` method:
 
 ```ruby
-canvas.set_predefined_palette(:cling)
+set_predefined_palette(:cling)
 ```
 
 You can also change individual colors in a palette using the `set_palette_color` method:
 
 ```ruby
-canvas.set_palette(0, 0x14, 0x34, 0x64)
+set_palette(0, 0x14, 0x34, 0x64)
 ```
 
 This sets the color number 0 to a deep blue. Changing a palette color will affect all pixels that use that color in the canvas immediately. This means you can do palette animations by changing the palette colors over time.
@@ -54,14 +54,22 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 
 <!-- palettes start -->
 
-#### 1bit_monitor_glow
+#### 1bit monitor glow
+
+```ruby
+set_predefined_palette(:1bit_monitor_glow)
+```
 
 <div class='swatches'>
 <span style='background-color: #222323'><span>0</span></span>
 <span style='background-color: #f0f6f0'><span>1</span></span>
 </div>
 
-#### aap_64
+#### Aap 64
+
+```ruby
+set_predefined_palette(:aap_64)
+```
 
 <div class='swatches'>
 <span style='background-color: #060608'><span>0</span></span>
@@ -130,7 +138,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #423934'><span>63</span></span>
 </div>
 
-#### aerugo
+#### Aerugo
+
+```ruby
+set_predefined_palette(:aerugo)
+```
 
 <div class='swatches'>
 <span style='background-color: #2f1e1a'><span>0</span></span>
@@ -167,7 +179,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #5e4835'><span>31</span></span>
 </div>
 
-#### apollo
+#### Apollo
+
+```ruby
+set_predefined_palette(:apollo)
+```
 
 <div class='swatches'>
 <span style='background-color: #172038'><span>0</span></span>
@@ -218,7 +234,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ebede9'><span>45</span></span>
 </div>
 
-#### blk_neo
+#### Blk neo
+
+```ruby
+set_predefined_palette(:blk_neo)
+```
 
 <div class='swatches'>
 <span style='background-color: #000000'><span>0</span></span>
@@ -269,7 +289,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #008782'><span>45</span></span>
 </div>
 
-#### calm_sunset
+#### Calm sunset
+
+```ruby
+set_predefined_palette(:calm_sunset)
+```
 
 <div class='swatches'>
 <span style='background-color: #684971'><span>0</span></span>
@@ -281,7 +305,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #fffcf1'><span>6</span></span>
 </div>
 
-#### carnival_32
+#### Carnival 32
+
+```ruby
+set_predefined_palette(:carnival_32)
+```
 
 <div class='swatches'>
 <span style='background-color: #4d2235'><span>0</span></span>
@@ -318,7 +346,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #8b7463'><span>31</span></span>
 </div>
 
-#### cc_29
+#### Cc 29
+
+```ruby
+set_predefined_palette(:cc_29)
+```
 
 <div class='swatches'>
 <span style='background-color: #f2f0e5'><span>0</span></span>
@@ -352,7 +384,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #5f556a'><span>28</span></span>
 </div>
 
-#### cga_palette_1_high
+#### Cga palette 1 high
+
+```ruby
+set_predefined_palette(:cga_palette_1_high)
+```
 
 <div class='swatches'>
 <span style='background-color: #000000'><span>0</span></span>
@@ -361,7 +397,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ffffff'><span>3</span></span>
 </div>
 
-#### cling
+#### Cling
+
+```ruby
+set_predefined_palette(:cling)
+```
 
 <div class='swatches'>
 <span style='background-color: #ffe617'><span>0</span></span>
@@ -410,7 +450,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ffffff'><span>43</span></span>
 </div>
 
-#### cloudy_28
+#### Cloudy 28
+
+```ruby
+set_predefined_palette(:cloudy_28)
+```
 
 <div class='swatches'>
 <span style='background-color: #daddee'><span>0</span></span>
@@ -443,7 +487,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #5a6685'><span>27</span></span>
 </div>
 
-#### color_graphics_adapter
+#### Color graphics adapter
+
+```ruby
+set_predefined_palette(:color_graphics_adapter)
+```
 
 <div class='swatches'>
 <span style='background-color: #000000'><span>0</span></span>
@@ -464,7 +512,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ffff55'><span>15</span></span>
 </div>
 
-#### colordome_32
+#### Colordome 32
+
+```ruby
+set_predefined_palette(:colordome_32)
+```
 
 <div class='swatches'>
 <span style='background-color: #0d0b0d'><span>0</span></span>
@@ -501,7 +553,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #d55c4d'><span>31</span></span>
 </div>
 
-#### comicscapes_50
+#### Comicscapes 50
+
+```ruby
+set_predefined_palette(:comicscapes_50)
+```
 
 <div class='swatches'>
 <span style='background-color: #8ec5b5'><span>0</span></span>
@@ -556,7 +612,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #952452'><span>49</span></span>
 </div>
 
-#### crimson
+#### Crimson
+
+```ruby
+set_predefined_palette(:crimson)
+```
 
 <div class='swatches'>
 <span style='background-color: #eff9d6'><span>0</span></span>
@@ -565,7 +625,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #1b0326'><span>3</span></span>
 </div>
 
-#### cryptic_ocean
+#### Cryptic ocean
+
+```ruby
+set_predefined_palette(:cryptic_ocean)
+```
 
 <div class='swatches'>
 <span style='background-color: #2a173b'><span>0</span></span>
@@ -576,7 +640,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #95c5ac'><span>5</span></span>
 </div>
 
-#### darkvania
+#### Darkvania
+
+```ruby
+set_predefined_palette(:darkvania)
+```
 
 <div class='swatches'>
 <span style='background-color: #120e2f'><span>0</span></span>
@@ -613,7 +681,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #102f2e'><span>31</span></span>
 </div>
 
-#### daydream_20
+#### Daydream 20
+
+```ruby
+set_predefined_palette(:daydream_20)
+```
 
 <div class='swatches'>
 <span style='background-color: #430f43'><span>0</span></span>
@@ -638,7 +710,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ed9b4a'><span>19</span></span>
 </div>
 
-#### dreamscape8
+#### Dreamscape8
+
+```ruby
+set_predefined_palette(:dreamscape8)
+```
 
 <div class='swatches'>
 <span style='background-color: #c9cca1'><span>0</span></span>
@@ -651,7 +727,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #8ea091'><span>7</span></span>
 </div>
 
-#### ega_com_extended
+#### Ega com extended
+
+```ruby
+set_predefined_palette(:ega_com_extended)
+```
 
 <div class='swatches'>
 <span style='background-color: #292929'><span>0</span></span>
@@ -676,7 +756,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #eb7272'><span>19</span></span>
 </div>
 
-#### eggdealer6
+#### Eggdealer6
+
+```ruby
+set_predefined_palette(:eggdealer6)
+```
 
 <div class='swatches'>
 <span style='background-color: #47323b'><span>0</span></span>
@@ -687,7 +771,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #e9d79d'><span>5</span></span>
 </div>
 
-#### endesga_32
+#### Endesga 32
+
+```ruby
+set_predefined_palette(:endesga_32)
+```
 
 <div class='swatches'>
 <span style='background-color: #be4a2f'><span>0</span></span>
@@ -724,7 +812,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #c28569'><span>31</span></span>
 </div>
 
-#### endesga_64
+#### Endesga 64
+
+```ruby
+set_predefined_palette(:endesga_64)
+```
 
 <div class='swatches'>
 <span style='background-color: #ff0040'><span>0</span></span>
@@ -793,7 +885,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #571c27'><span>63</span></span>
 </div>
 
-#### eroge_copper
+#### Eroge copper
+
+```ruby
+set_predefined_palette(:eroge_copper)
+```
 
 <div class='swatches'>
 <span style='background-color: #0d080d'><span>0</span></span>
@@ -814,7 +910,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #e89973'><span>15</span></span>
 </div>
 
-#### famicube
+#### Famicube
+
+```ruby
+set_predefined_palette(:famicube)
+```
 
 <div class='swatches'>
 <span style='background-color: #000000'><span>0</span></span>
@@ -883,7 +983,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #00177d'><span>63</span></span>
 </div>
 
-#### fantasy_24
+#### Fantasy 24
+
+```ruby
+set_predefined_palette(:fantasy_24)
+```
 
 <div class='swatches'>
 <span style='background-color: #1f240a'><span>0</span></span>
@@ -912,7 +1016,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #300f0a'><span>23</span></span>
 </div>
 
-#### faraway48
+#### Faraway48
+
+```ruby
+set_predefined_palette(:faraway48)
+```
 
 <div class='swatches'>
 <span style='background-color: #0d0709'><span>0</span></span>
@@ -965,7 +1073,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #f1f2f1'><span>47</span></span>
 </div>
 
-#### fleja_master_palette
+#### Fleja master palette
+
+```ruby
+set_predefined_palette(:fleja_master_palette)
+```
 
 <div class='swatches'>
 <span style='background-color: #1f1833'><span>0</span></span>
@@ -1003,7 +1115,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #852d66'><span>32</span></span>
 </div>
 
-#### florentine24
+#### Florentine24
+
+```ruby
+set_predefined_palette(:florentine24)
+```
 
 <div class='swatches'>
 <span style='background-color: #175145'><span>0</span></span>
@@ -1032,7 +1148,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #35082a'><span>23</span></span>
 </div>
 
-#### funny31
+#### Funny31
+
+```ruby
+set_predefined_palette(:funny31)
+```
 
 <div class='swatches'>
 <span style='background-color: #180a24'><span>0</span></span>
@@ -1068,7 +1188,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #39825b'><span>30</span></span>
 </div>
 
-#### galaxy_flame
+#### Galaxy flame
+
+```ruby
+set_predefined_palette(:galaxy_flame)
+```
 
 <div class='swatches'>
 <span style='background-color: #699fad'><span>0</span></span>
@@ -1089,7 +1213,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #151015'><span>15</span></span>
 </div>
 
-#### gob_48
+#### Gob 48
+
+```ruby
+set_predefined_palette(:gob_48)
+```
 
 <div class='swatches'>
 <span style='background-color: #000000'><span>0</span></span>
@@ -1142,7 +1270,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #edd5a5'><span>47</span></span>
 </div>
 
-#### gora63
+#### Gora63
+
+```ruby
+set_predefined_palette(:gora63)
+```
 
 <div class='swatches'>
 <span style='background-color: #141b27'><span>0</span></span>
@@ -1210,7 +1342,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #f2cdce'><span>62</span></span>
 </div>
 
-#### hept32
+#### Hept32
+
+```ruby
+set_predefined_palette(:hept32)
+```
 
 <div class='swatches'>
 <span style='background-color: #000000'><span>0</span></span>
@@ -1247,7 +1383,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #3d083b'><span>31</span></span>
 </div>
 
-#### hot_sand_6
+#### Hot sand 6
+
+```ruby
+set_predefined_palette(:hot_sand_6)
+```
 
 <div class='swatches'>
 <span style='background-color: #3a0000'><span>0</span></span>
@@ -1258,7 +1398,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #f26d1f'><span>5</span></span>
 </div>
 
-#### ice_cream_gb
+#### Ice cream gb
+
+```ruby
+set_predefined_palette(:ice_cream_gb)
+```
 
 <div class='swatches'>
 <span style='background-color: #7c3f58'><span>0</span></span>
@@ -1267,7 +1411,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #fff6d3'><span>3</span></span>
 </div>
 
-#### inkpink
+#### Inkpink
+
+```ruby
+set_predefined_palette(:inkpink)
+```
 
 <div class='swatches'>
 <span style='background-color: #ffffff'><span>0</span></span>
@@ -1278,7 +1426,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #260d34'><span>5</span></span>
 </div>
 
-#### journey
+#### Journey
+
+```ruby
+set_predefined_palette(:journey)
+```
 
 <div class='swatches'>
 <span style='background-color: #050914'><span>0</span></span>
@@ -1347,7 +1499,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #2d002e'><span>63</span></span>
 </div>
 
-#### juice56
+#### Juice56
+
+```ruby
+set_predefined_palette(:juice56)
+```
 
 <div class='swatches'>
 <span style='background-color: #000005'><span>0</span></span>
@@ -1408,7 +1564,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #6e2850'><span>55</span></span>
 </div>
 
-#### kawaii16
+#### Kawaii16
+
+```ruby
+set_predefined_palette(:kawaii16)
+```
 
 <div class='swatches'>
 <span style='background-color: #65471e'><span>0</span></span>
@@ -1429,7 +1589,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #1d173c'><span>15</span></span>
 </div>
 
-#### koni32
+#### Koni32
+
+```ruby
+set_predefined_palette(:koni32)
+```
 
 <div class='swatches'>
 <span style='background-color: #000000'><span>0</span></span>
@@ -1466,7 +1630,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ffffff'><span>31</span></span>
 </div>
 
-#### linear_color_palette_basic
+#### Linear color palette basic
+
+```ruby
+set_predefined_palette(:linear_color_palette_basic)
+```
 
 <div class='swatches'>
 <span style='background-color: #0e0c0c'><span>0</span></span>
@@ -1502,7 +1670,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #483b3a'><span>30</span></span>
 </div>
 
-#### lospec500
+#### Lospec500
+
+```ruby
+set_predefined_palette(:lospec500)
+```
 
 <div class='swatches'>
 <span style='background-color: #10121c'><span>0</span></span>
@@ -1549,7 +1721,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ffffff'><span>41</span></span>
 </div>
 
-#### lost_century
+#### Lost century
+
+```ruby
+set_predefined_palette(:lost_century)
+```
 
 <div class='swatches'>
 <span style='background-color: #d1b187'><span>0</span></span>
@@ -1570,7 +1746,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ab9b8e'><span>15</span></span>
 </div>
 
-#### lux2k
+#### Lux2k
+
+```ruby
+set_predefined_palette(:lux2k)
+```
 
 <div class='swatches'>
 <span style='background-color: #25131a'><span>0</span></span>
@@ -1611,7 +1791,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #dfbbb3'><span>35</span></span>
 </div>
 
-#### lux3k
+#### Lux3k
+
+```ruby
+set_predefined_palette(:lux3k)
+```
 
 <div class='swatches'>
 <span style='background-color: #ce3b26'><span>0</span></span>
@@ -1654,7 +1838,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #46dccd'><span>37</span></span>
 </div>
 
-#### midnight_ablaze
+#### Midnight ablaze
+
+```ruby
+set_predefined_palette(:midnight_ablaze)
+```
 
 <div class='swatches'>
 <span style='background-color: #ff8274'><span>0</span></span>
@@ -1666,7 +1854,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #130208'><span>6</span></span>
 </div>
 
-#### mojave20
+#### Mojave20
+
+```ruby
+set_predefined_palette(:mojave20)
+```
 
 <div class='swatches'>
 <span style='background-color: #dcd1b8'><span>0</span></span>
@@ -1691,7 +1883,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #fba64c'><span>19</span></span>
 </div>
 
-#### mort_vs_zughy
+#### Mort vs zughy
+
+```ruby
+set_predefined_palette(:mort_vs_zughy)
+```
 
 <div class='swatches'>
 <span style='background-color: #f8f8f8'><span>0</span></span>
@@ -1743,7 +1939,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #4f546b'><span>46</span></span>
 </div>
 
-#### mulfok32
+#### Mulfok32
+
+```ruby
+set_predefined_palette(:mulfok32)
+```
 
 <div class='swatches'>
 <span style='background-color: #5ba675'><span>0</span></span>
@@ -1780,7 +1980,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #4e187c'><span>31</span></span>
 </div>
 
-#### na16
+#### Na16
+
+```ruby
+set_predefined_palette(:na16)
+```
 
 <div class='swatches'>
 <span style='background-color: #8c8fae'><span>0</span></span>
@@ -1801,7 +2005,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #1f0e1c'><span>15</span></span>
 </div>
 
-#### nanner_16
+#### Nanner 16
+
+```ruby
+set_predefined_palette(:nanner_16)
+```
 
 <div class='swatches'>
 <span style='background-color: #7acccc'><span>0</span></span>
@@ -1822,7 +2030,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #4d2a2a'><span>15</span></span>
 </div>
 
-#### nanner_pancakes
+#### Nanner pancakes
+
+```ruby
+set_predefined_palette(:nanner_pancakes)
+```
 
 <div class='swatches'>
 <span style='background-color: #a0ddd3'><span>0</span></span>
@@ -1859,7 +2071,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #f7cf91'><span>31</span></span>
 </div>
 
-#### nes_advanced
+#### Nes advanced
+
+```ruby
+set_predefined_palette(:nes_advanced)
+```
 
 <div class='swatches'>
 <span style='background-color: #000000'><span>0</span></span>
@@ -1919,7 +2135,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #b3aac0'><span>54</span></span>
 </div>
 
-#### nirvana_7
+#### Nirvana 7
+
+```ruby
+set_predefined_palette(:nirvana_7)
+```
 
 <div class='swatches'>
 <span style='background-color: #1e0b37'><span>0</span></span>
@@ -1931,7 +2151,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #fcf2de'><span>6</span></span>
 </div>
 
-#### nyx8
+#### Nyx8
+
+```ruby
+set_predefined_palette(:nyx8)
+```
 
 <div class='swatches'>
 <span style='background-color: #08141e'><span>0</span></span>
@@ -1944,7 +2168,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #4e495f'><span>7</span></span>
 </div>
 
-#### oil_6
+#### Oil 6
+
+```ruby
+set_predefined_palette(:oil_6)
+```
 
 <div class='swatches'>
 <span style='background-color: #fbf5ef'><span>0</span></span>
@@ -1955,7 +2183,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #272744'><span>5</span></span>
 </div>
 
-#### paper_8
+#### Paper 8
+
+```ruby
+set_predefined_palette(:paper_8)
+```
 
 <div class='swatches'>
 <span style='background-color: #1f244b'><span>0</span></span>
@@ -1968,7 +2200,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #3c6b64'><span>7</span></span>
 </div>
 
-#### paradise_30
+#### Paradise 30
+
+```ruby
+set_predefined_palette(:paradise_30)
+```
 
 <div class='swatches'>
 <span style='background-color: #1a0e14'><span>0</span></span>
@@ -2003,7 +2239,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #d663d7'><span>29</span></span>
 </div>
 
-#### pastel_qt
+#### Pastel qt
+
+```ruby
+set_predefined_palette(:pastel_qt)
+```
 
 <div class='swatches'>
 <span style='background-color: #cb8175'><span>0</span></span>
@@ -2015,7 +2255,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #655057'><span>6</span></span>
 </div>
 
-#### pax_24
+#### Pax 24
+
+```ruby
+set_predefined_palette(:pax_24)
+```
 
 <div class='swatches'>
 <span style='background-color: #f4f5ef'><span>0</span></span>
@@ -2044,7 +2288,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #322d4d'><span>23</span></span>
 </div>
 
-#### pear36
+#### Pear36
+
+```ruby
+set_predefined_palette(:pear36)
+```
 
 <div class='swatches'>
 <span style='background-color: #5e315b'><span>0</span></span>
@@ -2085,7 +2333,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ffb5b5'><span>35</span></span>
 </div>
 
-#### pico_8
+#### Pico 8
+
+```ruby
+set_predefined_palette(:pico_8)
+```
 
 <div class='swatches'>
 <span style='background-color: #000000'><span>0</span></span>
@@ -2106,7 +2358,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ffccaa'><span>15</span></span>
 </div>
 
-#### pineapple_32
+#### Pineapple 32
+
+```ruby
+set_predefined_palette(:pineapple_32)
+```
 
 <div class='swatches'>
 <span style='background-color: #43002a'><span>0</span></span>
@@ -2143,7 +2399,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #601761'><span>31</span></span>
 </div>
 
-#### pollen8
+#### Pollen8
+
+```ruby
+set_predefined_palette(:pollen8)
+```
 
 <div class='swatches'>
 <span style='background-color: #73464c'><span>0</span></span>
@@ -2156,7 +2416,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #34acba'><span>7</span></span>
 </div>
 
-#### punolite_plus
+#### Punolite plus
+
+```ruby
+set_predefined_palette(:punolite_plus)
+```
 
 <div class='swatches'>
 <span style='background-color: #431c3f'><span>0</span></span>
@@ -2186,7 +2450,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #3b3c58'><span>24</span></span>
 </div>
 
-#### punolite_plus_plus
+#### Punolite plus plus
+
+```ruby
+set_predefined_palette(:punolite_plus_plus)
+```
 
 <div class='swatches'>
 <span style='background-color: #2e2e43'><span>0</span></span>
@@ -2223,7 +2491,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #5c8995'><span>31</span></span>
 </div>
 
-#### purplemorning8
+#### Purplemorning8
+
+```ruby
+set_predefined_palette(:purplemorning8)
+```
 
 <div class='swatches'>
 <span style='background-color: #211d38'><span>0</span></span>
@@ -2236,7 +2508,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #cdd4a5'><span>7</span></span>
 </div>
 
-#### resurrect_64
+#### Resurrect 64
+
+```ruby
+set_predefined_palette(:resurrect_64)
+```
 
 <div class='swatches'>
 <span style='background-color: #2e222f'><span>0</span></span>
@@ -2305,7 +2581,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #fdcbb0'><span>63</span></span>
 </div>
 
-#### retrobubble
+#### Retrobubble
+
+```ruby
+set_predefined_palette(:retrobubble)
+```
 
 <div class='swatches'>
 <span style='background-color: #9dc1c0'><span>0</span></span>
@@ -2326,7 +2606,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #f68b69'><span>15</span></span>
 </div>
 
-#### retrocal_8
+#### Retrocal 8
+
+```ruby
+set_predefined_palette(:retrocal_8)
+```
 
 <div class='swatches'>
 <span style='background-color: #6eb8a8'><span>0</span></span>
@@ -2339,7 +2623,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ee9c5d'><span>7</span></span>
 </div>
 
-#### rustic_gb
+#### Rustic gb
+
+```ruby
+set_predefined_palette(:rustic_gb)
+```
 
 <div class='swatches'>
 <span style='background-color: #2c2137'><span>0</span></span>
@@ -2348,7 +2636,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #a96868'><span>3</span></span>
 </div>
 
-#### ry_64
+#### Ry 64
+
+```ruby
+set_predefined_palette(:ry_64)
+```
 
 <div class='swatches'>
 <span style='background-color: #2f1e45'><span>0</span></span>
@@ -2417,7 +2709,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #222734'><span>63</span></span>
 </div>
 
-#### shanty
+#### Shanty
+
+```ruby
+set_predefined_palette(:shanty)
+```
 
 <div class='swatches'>
 <span style='background-color: #1e1526'><span>0</span></span>
@@ -2470,7 +2766,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #5a514a'><span>47</span></span>
 </div>
 
-#### sheltzy32
+#### Sheltzy32
+
+```ruby
+set_predefined_palette(:sheltzy32)
+```
 
 <div class='swatches'>
 <span style='background-color: #8cffde'><span>0</span></span>
@@ -2507,7 +2807,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ffffff'><span>31</span></span>
 </div>
 
-#### slso8
+#### Slso8
+
+```ruby
+set_predefined_palette(:slso8)
+```
 
 <div class='swatches'>
 <span style='background-color: #0d2b45'><span>0</span></span>
@@ -2520,7 +2824,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ffecd6'><span>7</span></span>
 </div>
 
-#### softmilk_32
+#### Softmilk 32
+
+```ruby
+set_predefined_palette(:softmilk_32)
+```
 
 <div class='swatches'>
 <span style='background-color: #23213d'><span>0</span></span>
@@ -2557,7 +2865,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #376129'><span>31</span></span>
 </div>
 
-#### suez_30
+#### Suez 30
+
+```ruby
+set_predefined_palette(:suez_30)
+```
 
 <div class='swatches'>
 <span style='background-color: #c4a78b'><span>0</span></span>
@@ -2592,7 +2904,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #230d51'><span>29</span></span>
 </div>
 
-#### sunshine_valley
+#### Sunshine valley
+
+```ruby
+set_predefined_palette(:sunshine_valley)
+```
 
 <div class='swatches'>
 <span style='background-color: #0e0e1a'><span>0</span></span>
@@ -2646,7 +2962,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #f5f8fa'><span>48</span></span>
 </div>
 
-#### sweet_canyon_extended_64
+#### Sweet canyon extended 64
+
+```ruby
+set_predefined_palette(:sweet_canyon_extended_64)
+```
 
 <div class='swatches'>
 <span style='background-color: #0f0e11'><span>0</span></span>
@@ -2715,7 +3035,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #ff9edb'><span>63</span></span>
 </div>
 
-#### sweet24
+#### Sweet24
+
+```ruby
+set_predefined_palette(:sweet24)
+```
 
 <div class='swatches'>
 <span style='background-color: #2c4941'><span>0</span></span>
@@ -2744,7 +3068,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #c02931'><span>23</span></span>
 </div>
 
-#### sweetie_16
+#### Sweetie 16
+
+```ruby
+set_predefined_palette(:sweetie_16)
+```
 
 <div class='swatches'>
 <span style='background-color: #1a1c2c'><span>0</span></span>
@@ -2765,7 +3093,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #333c57'><span>15</span></span>
 </div>
 
-#### tofu_20k
+#### Tofu 20k
+
+```ruby
+set_predefined_palette(:tofu_20k)
+```
 
 <div class='swatches'>
 <span style='background-color: #120a1a'><span>0</span></span>
@@ -2806,7 +3138,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #29694e'><span>35</span></span>
 </div>
 
-#### vga
+#### Vga
+
+```ruby
+set_predefined_palette(:vga)
+```
 
 <div class='swatches'>
 <span style='background-color: #000000'><span>0</span></span>
@@ -3067,7 +3403,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #000000'><span>255</span></span>
 </div>
 
-#### vines_flexible_linear_ramps
+#### Vines flexible linear ramps
+
+```ruby
+set_predefined_palette(:vines_flexible_linear_ramps)
+```
 
 <div class='swatches'>
 <span style='background-color: #150a1f'><span>0</span></span>
@@ -3110,7 +3450,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #97dbd2'><span>37</span></span>
 </div>
 
-#### vinik24
+#### Vinik24
+
+```ruby
+set_predefined_palette(:vinik24)
+```
 
 <div class='swatches'>
 <span style='background-color: #000000'><span>0</span></span>
@@ -3139,7 +3483,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #433455'><span>23</span></span>
 </div>
 
-#### winter_wonderland
+#### Winter wonderland
+
+```ruby
+set_predefined_palette(:winter_wonderland)
+```
 
 <div class='swatches'>
 <span style='background-color: #20284e'><span>0</span></span>
@@ -3152,7 +3500,11 @@ This sets the color number 0 to a deep blue. Changing a palette color will affec
 <span style='background-color: #738d9d'><span>7</span></span>
 </div>
 
-#### zughy_32
+#### Zughy 32
+
+```ruby
+set_predefined_palette(:zughy_32)
+```
 
 <div class='swatches'>
 <span style='background-color: #472d3c'><span>0</span></span>

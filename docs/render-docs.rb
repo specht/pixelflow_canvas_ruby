@@ -11,7 +11,13 @@ palettes = YAML.load(File.read('../lib/pixelflow_canvas/palettes.yaml'))
 s = StringIO.open do |io|
     palettes.each do |name, palette|
         io.puts
-        io.puts "#### #{name}"
+        io.puts "#### #{name.to_s.gsub('_', ' ').capitalize}"
+        io.puts
+        io.puts <<~END_OF_STRING
+        ```ruby
+        set_predefined_palette(:#{name})
+        ```
+        END_OF_STRING
         io.puts
         io.puts "<div class='swatches'>"
         palette.each.with_index do |color, i|
