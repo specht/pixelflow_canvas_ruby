@@ -1,0 +1,113 @@
+<style>
+img.full {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    image-rendering: pixelated;
+}
+</style>
+
+<h1 id="pixelflow-canvas-ruby-driver">Pixelflow Canvas (Ruby driver)</h1>
+
+<p>A virtual CRT for old school graphics programming in Visual Studio Code.</p>
+
+<p>The Pixelflow Canvas is a simple library for creating pixel graphics, animations or interactive experiments in Ruby. It provides a canvas that you can draw on using a fixed palette of 256 colors or 24-bit RGB values. The canvas can be displayed in Visual Studio Code using the Pixelflow Canvas extension.</p>
+
+<p class="info">This is the documentation for the pixelflow_canvas rubygem which requires the <a href="https://marketplace.visualstudio.com/items?itemName=gymnasiumsteglitz.pixelflow-canvas">»Pixelflow Canvas«</a> Visual Studio Code extension to work. You can find the documentation for the VS Code extension <a href="https://specht.github.io/pixelflow_canvas_vscode/">here</a>.</p>
+
+<h2 id="creating-a-canvas">Creating a canvas</h2>
+
+<p>There are two ways to work with a canvas.</p>
+
+<h3 id="working-with-an-instance">Working with an instance</h3>
+
+<p>Specify the width, height, and color mode (either <code class="language-plaintext highlighter-rouge">:palette</code> or <code class="language-plaintext highlighter-rouge">:rgb</code>) to create a new canvas:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'pixelflow_canvas'</span>
+
+<span class="n">canvas</span> <span class="o">=</span> <span class="no">Pixelflow</span><span class="o">::</span><span class="no">Canvas</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="ss">:palette</span><span class="p">)</span>
+<span class="n">canvas</span><span class="p">.</span><span class="nf">set_pixel</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This should produce the following output:</p>
+
+<!-- code begin
+Pixelflow::Canvas.new(32, 18, :palette) do
+    set_pixel(16, 9, 10)
+end
+code end -->
+<p><img class="full" src="images/code/7fa15cea8c83a542.png" /></p>
+
+<h3 id="pass-a-block-to-the-constructor">Pass a block to the constructor</h3>
+
+<p>This method allows you to omit the <code class="language-plaintext highlighter-rouge">canvas</code> variable on every method call:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Pixelflow</span><span class="o">::</span><span class="no">Canvas</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="ss">:palette</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">set_pixel</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>You can also use the <code class="language-plaintext highlighter-rouge">perform</code> method to run a block on an existing canvas:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">canvas</span> <span class="o">=</span> <span class="no">Pixelflow</span><span class="o">::</span><span class="no">Canvas</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="ss">:palette</span><span class="p">)</span>
+<span class="n">canvas</span><span class="p">.</span><span class="nf">perform</span> <span class="k">do</span>
+    <span class="n">set_pixel</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="modes-of-operation">Modes of operation</h2>
+
+<p>The following modes of operation affect how the canvas is working and how it is displayed.</p>
+
+<h3 id="color-modes">Color modes</h3>
+
+<p>There are two color modes: <code class="language-plaintext highlighter-rouge">:palette</code> and <code class="language-plaintext highlighter-rouge">:rgb</code>. In palette mode, the canvas uses a fixed palette of 256 colors and each pixel is represented by an index (0…255) into this palette. In RGB mode, each pixel is represented by a 24-bit RGB value.</p>
+
+<p>The default color mode is <code class="language-plaintext highlighter-rouge">:rgb</code>. It can be changed by calling <code class="language-plaintext highlighter-rouge">set_color_mode</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_color_mode</span><span class="p">(</span><span class="ss">:palette</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="double-buffering">Double buffering</h3>
+
+<p>There are two drawing modes: <code class="language-plaintext highlighter-rouge">:direct</code> and <code class="language-plaintext highlighter-rouge">:buffered</code>. In direct mode, every pixel gets drawn immediately. In buffered mode, the canvas is drawn to an off-screen buffer and then copied to the screen when <code class="language-plaintext highlighter-rouge">flip</code> is called. Double buffering is useful for animations to prevent flickering.</p>
+
+<p>The default drawing mode is <code class="language-plaintext highlighter-rouge">:direct</code>. It can be changed by calling <code class="language-plaintext highlighter-rouge">set_draw_mode</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_draw_mode</span><span class="p">(</span><span class="ss">:buffered</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p class="info">If you get a black canvas in buffered mode, make sure to call <code class="language-plaintext highlighter-rouge">flip</code> at the end of your drawing code.</p>
+
+<h3 id="composition-modes">Composition modes</h3>
+
+<p>There are three composition modes: <code class="language-plaintext highlighter-rouge">:copy</code>, <code class="language-plaintext highlighter-rouge">:add</code>, <code class="language-plaintext highlighter-rouge">:subtract</code> and <code class="language-plaintext highlighter-rouge">:multiply</code>.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">:copy</code> copies the source pixel to the destination pixel</li>
+  <li><code class="language-plaintext highlighter-rouge">:add</code> adds the source pixel to the destination pixel</li>
+  <li><code class="language-plaintext highlighter-rouge">:subtract</code> subtracts the source pixel from the destination pixel</li>
+  <li><code class="language-plaintext highlighter-rouge">:multiply</code> multiplies the source pixel with the destination pixel</li>
+</ul>
+
+<p>The default composition mode is <code class="language-plaintext highlighter-rouge">:copy</code>. It can be changed by calling <code class="language-plaintext highlighter-rouge">set_composition_mode</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_composition_mode</span><span class="p">(</span><span class="ss">:add</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p class="info">Composition modes other than <code class="language-plaintext highlighter-rouge">:copy</code> require the canvas to be in RGB mode.</p>
+
+<h3 id="interpolation-modes">Interpolation modes</h3>
+
+<p>There are two interpolation modes: <code class="language-plaintext highlighter-rouge">:nearest</code> and <code class="language-plaintext highlighter-rouge">:bilinear</code>. This mode only affects the display of the canvas in the Visual Studio Code extension.</p>
+
+<p>The default interpolation mode is <code class="language-plaintext highlighter-rouge">:nearest</code>. It can be changed by calling <code class="language-plaintext highlighter-rouge">set_interpolation_mode</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_interpolation_mode</span><span class="p">(</span><span class="ss">:bilinear</span><span class="p">)</span>
+</code></pre></div></div>
+<!--
+- Using masks
+- Saving the canvas
+- Event polling
+-->

@@ -47,29 +47,11 @@ module Pixelflow
             @compose_mode = :copy
             @palette = VGA_PALETTE.dup
             @socket = TCPSocket.new('127.0.0.1', 19223)
-
-
-            # Fast transport: all drawing changes the local framebuffer.
-            # Complete frames are sent instead of MOVE_TO/SET_PIXEL commands.
-            @dirty = false
-            @direct_frame_interval = 1.0 / 30.0
-            @direct_pixel_counter = 0
-            @last_present_timestamp =
-                Process.clock_gettime(Process::CLOCK_MONOTONIC)
             set_size(width, height)
             set_color_mode(color_mode) if color_mode
-            @last_timestamp = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-            at_exit do
-                begin
-                    present if @dirty && @socket && !@socket.closed?
-                rescue IOError, SystemCallError
-                    # VS Code may already have gone away during shutdown.
-                end
-            end
-
+            @last_timestamp = Time.now.to_f
             if block_given?
                 instance_eval(&block)
-                present if @dirty
             end
         end
 
@@ -145,49 +127,23 @@ module Pixelflow
         end
 
         def flip()
-            present
-        end
-
-        # Send one complete framebuffer as one SET_BUFFER packet.
-        def present
-            return unless @dirty
-
-            packet = "\x07".b
-            packet << @screen.pack('C*')
-            @socket.write(packet)
-            @socket.flush
-
-            @dirty = false
-            @direct_pixel_counter = 0
-            @last_present_timestamp =
-                Process.clock_gettime(Process::CLOCK_MONOTONIC)
-        end
-
-        # Direct mode remains progressive without checking the clock for
-        # every single pixel. We only test the 30 fps deadline every 1024
-        # pixel writes. Existing animation code gets an exact frame boundary
-        # through ensure_max_fps below.
-        def present_if_due
-            return unless @draw_mode == :direct && @dirty
-
-            @direct_pixel_counter += 1
-            return unless (@direct_pixel_counter & 1023).zero?
-
-            now = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-            present if now - @last_present_timestamp >= @direct_frame_interval
+            if @draw_mode == :buffered
+                @socket.write([7].pack('C'))
+                @socket.write(@screen.pack('C*'))
+                @socket.flush
+            end
         end
 
         def ensure_max_fps(fps)
-            # Existing examples call this once after drawing a frame.
-            present if @draw_mode == :direct && @dirty
-
-            frame_time = 1.0 / fps
-            now = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+            fps1 = 1.0 / fps
+            t = Time.now.to_f
             if @last_timestamp
-                remaining = frame_time - (now - @last_timestamp)
-                sleep remaining if remaining > 0
+                loop do
+                    sleep 0.01
+                    break if (Time.now.to_f - @last_timestamp) >= fps1
+                end
             end
-            @last_timestamp = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+            @last_timestamp = Time.now.to_f
         end
 
         def save_as_png(path)
@@ -298,9 +254,13 @@ module Pixelflow
             x = x.to_i
             y = y.to_i
             return if x < 0 || x >= @width || y < 0 || y >= @height
-
             @x = x
             @y = y
+            buffer = [5].pack('C')
+            buffer += [x].pack((@width <= 256) ? 'C' : 'n')
+            buffer += [y].pack((@height <= 256) ? 'C' : 'n')
+            @socket.write(buffer)
+            @socket.flush
         end
 
         def set_pixel(x, y, r = nil, g = nil, b = nil)
@@ -344,8 +304,14 @@ module Pixelflow
                 offset = @y * @width + @x
                 @screen[offset] = r
             end
-            @dirty = true
-            present_if_due
+            if @draw_mode == :direct
+                if @color_mode == :rgb
+                    @socket.write([6, r, g, b].pack('CCCC'))
+                else
+                    @socket.write([6, r].pack('CC'))
+                end
+                @socket.flush()
+            end
             if @advance_mode == :right
                 @x += 1
                 if @x >= @width

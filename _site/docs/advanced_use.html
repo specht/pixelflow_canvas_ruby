@@ -1,0 +1,28 @@
+<h1 id="using-masks">Using masks</h1>
+
+<p>Masks can be used to specify which parts of the image should be affected by drawing operations.</p>
+
+<p>To set a mask, use the <code class="language-plaintext highlighter-rouge">set_mask</code> method:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">set_mask</span> <span class="k">do</span>
+    <span class="n">add_color</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>In the example above, the mask is set to all pixels that currently have a color of 5. This means that any drawing operation will only affect pixels that have a color of 5 until the mask is removed.</p>
+
+<p>Remove a mask by calling the <code class="language-plaintext highlighter-rouge">remove_mask</code> method:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">remove_mask</span>
+</code></pre></div></div>
+<h1 id="saving-the-canvas">Saving the canvas</h1>
+
+<p>You can save the canvas to a file using the <code class="language-plaintext highlighter-rouge">save_as_png</code> method.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">save_as_png</span><span class="p">(</span><span class="s2">"output.png"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="event-polling">Event polling</h1>
+
+<p>The Pixelflow Canvas is not just a canvas for drawing, it also has built-in event polling capabilities. You can use the <code class="language-plaintext highlighter-rouge">fetch_events</code> method to get the next event from the event queue.</p>
+
